@@ -20,14 +20,14 @@ jobs:
         run: mvn clean package
 
       - name: Build Docker Image
-        run: docker build -t webapplication .
+        run: docker build -t webapp11 .
 
       - name: Stop Old Container
-        run: docker rm -f webapplication-container || true
+        run: docker rm -f webapp11-container || true
 
       - name: Run New Container
         run: |
           docker run -d \
-          --name webapplication-container \
-          -p 8000:800 \
+          --name webapp11-container \
+          -p 800:800 \
           webapplication
